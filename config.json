@@ -1,0 +1,12 @@
+{
+    "params":
+    {
+        "smtp_server": "smtpout.secureserver.net",
+        "smtp_port": "465",
+        "smtp_ssl": "True",
+        "smtp_username": "info@datasoftinfo.com",
+        "smtp_password": "Creative#123",
+        "superuser": "admin@datasoftinfo.com",
+        "superpass": "admin"
+    }
+}

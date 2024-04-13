@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MEDISTRANSIT - {{title}}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="filename={{ url_for('static', filename='/assets/img/favicon.png') }}" rel="icon">
+  <link href="filename={{ url_for('static', filename='/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='/assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='/assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='/assets/css/style.css') }}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Jan 09 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  
+  <main id="main" class="main d-flex justify-content-center">
+
+    <div class="pagetitle d-flex justify-content-center">
+      <h1>Book Ambulance</h1>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <img src="{{ url_for('static', filename='/assets/img/ambulance.gif') }}" class="rounded mx-auto d-block" alt="..." height={{imgheight}}>
+      <div class="row d-flex justify-content-center">
+        <div class="{{msgclass}}" role="alert" {{flashmsg}}>
+          {{msg}}
+        </div>
+        <div class="card info-card sales-card">
+          <form action="/dashboard/booknow", method="POST" {{showform}}>
+            <div class="row">
+              <!-- Information of Contact Person -->
+              <div class="col-md-6">
+                <h3 class="mb-4 mt-4">Contact Person Details</h3>
+                <div class="form-group mb-4">
+                  <label for="contactPersonName">Contact Person</label>
+                  <input type="text" class="form-control" name="cperson" id="contactPersonName" placeholder="Enter Name" value="{{cperson}}" {{cd_readonly}} required>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="mobile">Mobile Number</label>
+                  <input type="tel" class="form-control" name="mobile" id="mobile" placeholder="Enter Mobile Number" value="{{mobile}}" {{cd_readonly}} required>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{email}}" {{cd_readonly}}>
+                </div>
+              </div>
+              <!-- Information of Patient -->
+              <div class="col-md-6">
+                <h3 class="mb-4 mt-4">Patient Details</h3>
+                <div class="form-group mb-4">
+                  <label for="patientName">Patient Name</label>
+                  <input type="text" class="form-control" name="patientname" id="patientName" placeholder="Enter patient name" required>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="address">Address</label>
+                  <textarea class="form-control" name="address" id="address" rows="3" placeholder="Enter address" required></textarea>
+                </div>
+                <div class="form-group mb-4">
+                  <select class="form-control" name="gender" id="dropdown" required>
+                    <option value="">Select Gender</i></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group mb-4">
+                  <input type="text" class="form-control" name="age" id="patientAge" placeholder="Enter Patient Age" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-lg" action="/dashboard/booknow" method="POST">Book Ambulance <i class="bi bi-plus-circle"></i></button>
+              </div>
+            </div>
+          </form>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>MEDITRANSIT</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Developed by <a href="https://linkedin.com/in/kartikeyajoshii/" target="_blank">Kartikeya Joshi</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/vendor/echarts/echarts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/vendor/chart.js/chart.umd.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/assets/vendor/quill/quill.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/vendor/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/vendor/php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='/assets/js/main.js') }}"></script>
+
+</body>
+
+</html>
